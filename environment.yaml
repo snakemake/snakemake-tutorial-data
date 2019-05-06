@@ -1,8 +1,8 @@
 channels:
-  - bioconda
   - conda-forge
+  - bioconda
 dependencies:
-  - snakemake-minimal =5.2.4
+  - bioconda::snakemake-minimal =5.4.5
   - python =3.6
   - jinja2 =2.10
   - networkx =2.1
