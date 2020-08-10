@@ -58,6 +58,14 @@ def confirm():
             return False
 
 
+def add_ending_slash(filename):
+    """Since we want to replace based on having an ending slash, ensure it's there
+    """
+    if not filename.endswith("/"):
+        filename = "%s/" % filename
+    return filename
+
+
 def main():
     """upload one or more files to Google Cloud Storage, relative to the
        present working directory.
@@ -81,7 +89,13 @@ def main():
 
     print(f"Obtained bucket {bucket}")
 
-    bucket_path = args.bucket.replace(bucket_name + os.path.sep, "", 1)
+    import IPython
+
+    IPython.embed()
+
+    # Ensure we have relative path to bucket
+    args.bucket = add_ending_slash(args.bucket)
+    bucket_path = args.bucket.replace(bucket_name + "/", "", 1)
 
     print("\nThe following files will be uploaded:")
 
@@ -93,8 +107,11 @@ def main():
 
                 # Replace the present working directory and path
                 storage_path = name.replace(here + os.path.sep, "")
-                storage_path = storage_path.replace(args.path + os.path.sep, "")
-                filenames[name] = storage_path
+
+                # Ensure we have relative path
+                prefix = add_ending_slash(args.path)
+                storage_path = storage_path.replace(prefix, "")
+                filenames[name] = os.path.join(bucket_path, storage_path)
                 full_path = os.path.join(bucket_name, bucket_path, storage_path)
                 print(f"{name} -> {full_path}")
 
