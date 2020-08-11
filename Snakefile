@@ -9,7 +9,7 @@ rule bwa_map:
         fastq="samples/{sample}.fastq",
         idx=multiext("genome.fa", ".amb", ".ann", ".bwt", ".pac", ".sa")
     conda:
-        "environment.yml"
+        "environment.yaml"
     output:
         "mapped_reads/{sample}.bam"
     params:
@@ -23,7 +23,7 @@ rule samtools_sort:
     output:
         "sorted_reads/{sample}.bam"
     conda:
-        "environment.yml"
+        "environment.yaml"
     shell:
         "samtools sort -T sorted_reads/{wildcards.sample} "
         "-O bam {input} > {output}"
@@ -34,7 +34,7 @@ rule samtools_index:
     output:
         "sorted_reads/{sample}.bam.bai"
     conda:
-        "environment.yml"
+        "environment.yaml"
     shell:
         "samtools index {input}"
 
@@ -46,7 +46,7 @@ rule bcftools_call:
     output:
         "calls/all.vcf"
     conda:
-        "environment.yml"
+        "environment.yaml"
     shell:
         "samtools mpileup -g -f {input.fa} {input.bam} | "
         "bcftools call -mv - > {output}"
@@ -57,6 +57,6 @@ rule plot_quals:
     output:
         "plots/quals.svg"
     conda:
-        "environment.yml"
+        "environment.yaml"
     script:
         "plot-quals.py"
