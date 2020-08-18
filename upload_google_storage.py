@@ -89,10 +89,6 @@ def main():
 
     print(f"Obtained bucket {bucket}")
 
-    import IPython
-
-    IPython.embed()
-
     # Ensure we have relative path to bucket
     args.bucket = add_ending_slash(args.bucket)
     bucket_path = args.bucket.replace(bucket_name + "/", "", 1)
