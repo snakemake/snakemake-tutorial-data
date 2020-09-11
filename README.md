@@ -74,5 +74,5 @@ Uploading samples/C.fastq to snakemake-testing-data
 
 You should then be able to see your files in Storage! Good job!
 
-![img/upload-google-storage.png](img/upload-google-storage.png)
+![.aux/upload-google-storage.png](.aux/upload-google-storage.png)
 
