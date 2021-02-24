@@ -59,4 +59,4 @@ rule plot_quals:
     conda:
         "environment.yaml"
     script:
-        "plot-quals.py"
+        "scripts/plot-quals.py"
