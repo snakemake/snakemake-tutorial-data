@@ -6,8 +6,8 @@ rule all:
 
 rule bwa_map:
     input:
-        fastq="samples/{sample}.fastq",
-        idx=multiext("genome.fa", ".amb", ".ann", ".bwt", ".pac", ".sa")
+        fastq="data/samples/{sample}.fastq",
+        idx=multiext("data/genome.fa", ".amb", ".ann", ".bwt", ".pac", ".sa")
     conda:
         "environment.yaml"
     output:
@@ -15,7 +15,7 @@ rule bwa_map:
     params:
         idx=lambda w, input: os.path.splitext(input.idx[0])[0]
     shell:
-        "bwa mem {params.idx} {input.fastq} | samtools view -Sb - > {output}"
+        "bwa mem {params.idx} data/{input.fastq} | samtools view -Sb - > {output}"
 
 rule samtools_sort:
     input:
@@ -40,7 +40,7 @@ rule samtools_index:
 
 rule bcftools_call:
     input:
-        fa="genome.fa",
+        fa="data/genome.fa",
         bam=expand("sorted_reads/{sample}.bam", sample=SAMPLES),
         bai=expand("sorted_reads/{sample}.bam.bai", sample=SAMPLES)
     output:
