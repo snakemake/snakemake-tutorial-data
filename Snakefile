@@ -15,7 +15,7 @@ rule bwa_map:
     params:
         idx=lambda w, input: os.path.splitext(input.idx[0])[0]
     shell:
-        "bwa mem {params.idx} data/{input.fastq} | samtools view -Sb - > {output}"
+        "bwa mem {params.idx} {input.fastq} | samtools view -Sb - > {output}"
 
 rule samtools_sort:
     input:
