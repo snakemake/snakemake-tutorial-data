@@ -1,6 +1,12 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/snakemake/snakemake-tutorial-data)
+
 # Example data for the Snakemake tutorial
 
 This repository hosts the data needed for the [Snakemake tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html).
+
+
+<details>
+  <summary>Click for cloud upload instructions.</summary>
 
 ## Uploaders
 
@@ -15,7 +21,7 @@ export GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json
 
 And install the google-cloud-storage client:
 
-```bsah
+```bash
 pip install google-cloud-storage
 ```
 
@@ -76,3 +82,4 @@ You should then be able to see your files in Storage! Good job!
 
 ![.aux/upload-google-storage.png](.aux/upload-google-storage.png)
 
+</details>

@@ -1,0 +1,6 @@
+image: snakemake/snakemake:v6.0.0
+tasts:
+  - init: Cleanup tutorial environment
+    command: rm Snakefile .gitpod.yml upload_google_storage.py Dockerfile
+  - activate-env: Activate environment
+    command: conda activate snakemake-tutorial
