@@ -15,7 +15,7 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@3.01
       with:
-        name: snakemake/snakemake
+        name: snakemake/snakemake-tutorial
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
         tags: "${{ env.RELEASE_VERSION }},stable"
