@@ -1,6 +1,4 @@
 image: snakemake/snakemake-tutorial:stable
 tasks:
-  - init: Cleanup tutorial environment
-    command: rm Snakefile .gitpod.yml upload_google_storage.py Dockerfile
-  - activate-env: Activate environment
-    command: conda activate snakemake-tutorial
+  - command: rm Snakefile .gitpod.yml upload_google_storage.py Dockerfile
+  - command: conda activate snakemake-tutorial
