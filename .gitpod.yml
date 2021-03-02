@@ -1,5 +1,5 @@
 image: snakemake/snakemake-tutorial:stable
 tasks:
   - command: rm -r Snakefile upload_google_storage.py Dockerfile scripts
-  - command: echo -e "# Snakemake-Tutorial\n\nYour gitpod workspace for the snakemake-tutorial has been initialized. Now you can start with the [basic tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html).
+  - command: echo -e "# Snakemake-Tutorial\n\nYour gitpod workspace for the snakemake-tutorial has been initialized. Now you can start with the [basic tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)." > README.md
   - command: conda activate snakemake-tutorial
