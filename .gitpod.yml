@@ -1,4 +1,4 @@
 image: snakemake/snakemake-tutorial:stable
 tasks:
-  - command: rm Snakefile .gitpod.yml upload_google_storage.py Dockerfile
+  - command: rm -r Snakefile .gitpod.yml upload_google_storage.py Dockerfile scripts
   - command: conda activate snakemake-tutorial
