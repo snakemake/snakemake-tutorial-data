@@ -1,8 +1,12 @@
 image: snakemake/snakemake-tutorial:stable
+
 tasks:
-  - command: rm Dockerfile
-  - command: echo -e "# Snakemake-Tutorial\n\nYour gitpod workspace for the snakemake-tutorial has been initialized. Now you can start with the [basic tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)." > README.md
-  - command: conda activate snakemake-tutorial
+  - command: |
+      rm Dockerfile
+      echo -e "# Snakemake-Tutorial\n\nYour gitpod workspace for the snakemake-tutorial has been initialized. Now you can start with the [basic tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)." > README.md
+      conda activate snakemake-tutorial
+      clear
+
 vscode:
   extensions:
     - snakemake.snakemake-lang@0.1.1:8RkTdEpsIsAkEX+4IDWkzg==
