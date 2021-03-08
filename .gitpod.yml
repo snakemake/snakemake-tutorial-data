@@ -5,4 +5,4 @@ tasks:
   - command: conda activate snakemake-tutorial
 vscode:
   extensions:
-    - snakemake.snakemake-lang
+    - snakemake.snakemake-lang@0.1.1:8RkTdEpsIsAkEX+4IDWkzg==
