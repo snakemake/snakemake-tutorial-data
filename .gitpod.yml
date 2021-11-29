@@ -7,6 +7,7 @@ tasks:
       echo -e "# Snakemake-Tutorial\n\nYour gitpod workspace for the snakemake-tutorial has been initialized. Now you can start with the [basic tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)." > README.md
       echo "PS1='\w\$ '" >> ~/.bashrc
       source ~/.bashrc
+      echo "*" > .gitignore
       conda activate snakemake-tutorial
       clear
 
