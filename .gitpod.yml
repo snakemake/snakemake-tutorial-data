@@ -10,3 +10,4 @@ tasks:
 vscode:
   extensions:
     - snakemake.snakemake-lang
+    - ms-toolsai.jupyter
