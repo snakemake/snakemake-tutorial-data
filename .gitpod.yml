@@ -15,3 +15,4 @@ vscode:
   extensions:
     - snakemake.snakemake-lang
     - ms-toolsai.jupyter
+    - sndst00m.vscode-native-svg-preview
