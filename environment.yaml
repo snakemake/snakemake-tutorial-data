@@ -2,14 +2,12 @@ channels:
   - bioconda
   - conda-forge
 dependencies:
-  - snakemake-minimal >=6.12
+  - snakemake-minimal >=7.4
   - jinja2
-  - networkx
   - matplotlib
   - graphviz
   - bcftools =1.14
   - samtools =1.14
   - bwa =0.7.17
   - pysam =0.17
-  - pygraphviz
   - pygments
