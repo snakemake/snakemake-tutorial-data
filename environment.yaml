@@ -2,7 +2,7 @@ channels:
   - bioconda
   - conda-forge
 dependencies:
-  - snakemake-minimal >=7.4
+  - snakemake-minimal >=7.3
   - jinja2
   - matplotlib
   - graphviz
