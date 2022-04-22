@@ -3,6 +3,8 @@ image: snakemake/snakemake-tutorial:stable
 tasks:
   - name: main terminal
     command: |
+      # make conda installation writable by later processes
+      sudo chown -R gitpod:gitpod /opt/conda
       rm Dockerfile
       echo -e "# Snakemake-Tutorial\n\nYour gitpod workspace for the snakemake-tutorial has been initialized. Now you can start with the [basic tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)." > README.md
       echo "PS1='\w\$ '" >> ~/.bashrc
