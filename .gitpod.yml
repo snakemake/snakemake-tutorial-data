@@ -6,10 +6,11 @@ tasks:
       rm Dockerfile
       echo -e "# Snakemake-Tutorial\n\nYour gitpod workspace for the snakemake-tutorial has been initialized. Now you can start with the [basic tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)." > README.md
       echo "PS1='\w\$ '" >> ~/.bashrc
-      source ~/.bashrc
       echo "*" > .gitignore
-      conda activate snakemake-tutorial
+      conda init
+      source ~/.bashrc
       clear
+      conda activate snakemake-tutorial
 
 vscode:
   extensions:
