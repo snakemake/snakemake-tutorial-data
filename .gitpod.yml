@@ -1,5 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
+image: snakemake/snakemake-tutorial-data:stable
 
 tasks:
   - name: main terminal
