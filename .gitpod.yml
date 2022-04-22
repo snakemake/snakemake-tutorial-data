@@ -1,4 +1,4 @@
-image: snakemake/snakemake-tutorial-data:stable
+image: snakemake/snakemake-tutorial:stable
 
 tasks:
   - name: main terminal
