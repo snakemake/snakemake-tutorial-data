@@ -1,5 +1,3 @@
-FROM condaforge/mambaforge
-ENV SHELL /bin/bash
+FROM snakemake/snakemake:stable
 ADD environment.yaml .
-RUN mamba env create -n snakemake-tutorial -f environment.yaml
-RUN bash -l -c "(source activate snakemake-tutorial; dot -c && dot -v)"
+RUN grep -v snakemake-minimal environment.yaml > /tmp/environment.yaml; mamba env update -n snakemake -f /tmp/environment.yaml
