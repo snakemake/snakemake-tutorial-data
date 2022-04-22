@@ -2,8 +2,11 @@ image: snakemake/snakemake-tutorial-data:stable
 
 tasks:
   - name: main terminal
+    env:
+      CONDA_PKGS_DIRS=/tmp/conda
     command: |
       rm Dockerfile
+      mkdir -p /tmp/conda
       echo -e "# Snakemake-Tutorial\n\nYour gitpod workspace for the snakemake-tutorial has been initialized. Now you can start with the [basic tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)." > README.md
       echo "PS1='\w\$ '" >> ~/.bashrc
       source ~/.bashrc
