@@ -3,6 +3,8 @@ channels:
   - bioconda
 dependencies:
   - snakemake-minimal >=8.4.4
+  - snakemake-executor-plugin-slurm  
+  - snakemake-storage-plugin-fs
   - jinja2
   - matplotlib
   - graphviz
