@@ -14,4 +14,4 @@ dependencies:
     #  at the time of writing - 7. Feb 24 - pysam on bioconda will require
     #  a lower python version than snakemake, install pysam
     #  using pip
-    - pysam =0.22
+    - pysam ==0.22
