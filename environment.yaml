@@ -2,12 +2,16 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - snakemake-minimal >=7.3
+  - snakemake-minimal >=8.4.4
   - jinja2
   - matplotlib
   - graphviz
-  - bcftools =1.15
-  - samtools =1.15
+  - bcftools =1.19
+  - samtools =1.19.2
   - bwa =0.7.17
-  - pysam =0.19
   - pygments
+  - pip:
+    #  at the time of writing - 7. Feb 24 - pysam on bioconda will require
+    #  a lower python version than snakemake, install pysam
+    #  using pip
+    - pysam ==0.22
