@@ -6,9 +6,9 @@ dependencies:
   - jinja2
   - matplotlib
   - graphviz
-  - bcftools =1.19
-  - samtools =1.19.2
-  - bwa =0.7.17
+  - bcftools >=1.19
+  - samtools >=1.19
+  - bwa ~=0.7.17
   - pygments
   - pip:
     #  at the time of writing - 7. Feb 24 - pysam on bioconda will require
