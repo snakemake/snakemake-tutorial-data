@@ -1,0 +1,5 @@
+calls
+plots
+sorted_reads
+mapped_reads
+.snakemake
