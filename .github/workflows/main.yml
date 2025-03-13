@@ -7,35 +7,38 @@ on:
   pull_request:
     branches-ignore: []
 
+env:
+  DOCKER_TAG_NAME: snakemake-tutorial
+
 jobs:
   docker-build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Setup Buildx
-      uses: docker/setup-buildx-action@v3
+      - name: Setup Buildx
+        uses: docker/setup-buildx-action@v3
 
-    - name: Lint Dockerfile
-      uses: hadolint/hadolint-action@v3.1.0
-      with:
-        dockerfile: Dockerfile
-        no-fail: true
-      
-    - name: Build Docker Image
-      uses: docker/build-push-action@v6
-      with:
-        context: .
-        file: Dockerfile
-        tags: snakemake-tutorial
-        outputs: type=docker, dest=/tmp/snakemake-tutorial.tar
+      - name: Lint Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+          no-fail: true
+        
+      - name: Build Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          tags: ${{ env.DOCKER_TAG_NAME }}
+          outputs: type=docker, dest=/tmp/${{ env.DOCKER_TAG_NAME }}.tar
 
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with: 
-        name: snakemake-tutorial
-        path: /tmp/snakemake-tutorial.tar
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with: 
+          name: ${{ env.DOCKER_TAG_NAME }}
+          path: /tmp/${{ env.DOCKER_TAG_NAME }}.tar
 
   lint:
     runs-on: ubuntu-latest
@@ -43,6 +46,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Buildx
         uses: docker/setup-buildx-action@v3
@@ -60,13 +65,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: snakemake-tutorial
-          path: /tmp/snakemake-tutorial.tar
+          path: /tmp
 
       - name: Load Docker Image
-        run: docker load -i /tmp/snakemake-tutorial.tar
+        run: docker load -i /tmp/${{ env.DOCKER_TAG_NAME }}.tar
 
       - name: DryRun Snakefile
-        run: docker run snakemake/snakemake-tutorial snakemake --cores 1 --dryrun
+        run: docker run ${{ env.DOCKER_TAG_NAME }} snakemake --cores 1 --dryrun
 
   test:
     runs-on: ubuntu-latest
@@ -81,11 +86,11 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
-          name: snakemake-tutorial
-          path: /tmp/snakemake-tutorial.tar
+          name: ${{ env.DOCKER_TAG_NAME }}
+          path: /tmp
 
       - name: Load Docker Image
-        run: docker load -i /tmp/snakemake-tutorial.tar
+        run: docker load -i /tmp/${{env.DOCKER_TAG_NAME}}.tar
 
       - name: Run Tests
-        run: docker run snakemake-tutorial snakemake --cores 1 
+        run: docker run ${{ env.DOCKER_TAG_NAME }} snakemake --cores 1 
