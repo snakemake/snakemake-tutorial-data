@@ -71,7 +71,9 @@ jobs:
         run: docker load -i /tmp/${{ env.DOCKER_TAG_NAME }}.tar
 
       - name: DryRun Snakefile
-        run: docker run ${{ env.DOCKER_TAG_NAME }} snakemake --cores 1 --dryrun
+        run: | 
+          docker run -v $(pwd):/work -w /work ${{env.DOCKER_TAG_NAME}} \
+            conda run -n ${{env.DOCKER_TAG_NAME}} snakemake --cores 1
 
   test:
     runs-on: ubuntu-latest
@@ -93,6 +95,7 @@ jobs:
         run: docker load -i /tmp/${{env.DOCKER_TAG_NAME}}.tar
 
       - name: Run Tests
-        run: docker run -v $(pwd):/work -w /work ${{env.DOCKER_TAG_NAME}} \
+        run: |
+          docker run -v $(pwd):/work -w /work ${{env.DOCKER_TAG_NAME}} \
             conda run -n ${{env.DOCKER_TAG_NAME}} -tutorial snakemake --cores 1
 
