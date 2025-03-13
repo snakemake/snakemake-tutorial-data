@@ -73,7 +73,7 @@ jobs:
       - name: DryRun Snakefile
         run: | 
           docker run -v $(pwd):/work -w /work ${{env.DOCKER_TAG_NAME}} \
-            conda run -n ${{env.DOCKER_TAG_NAME}} snakemake --cores 1
+            conda run -n ${{env.DOCKER_TAG_NAME}} snakemake -n
 
   test:
     runs-on: ubuntu-latest
@@ -97,5 +97,5 @@ jobs:
       - name: Run Tests
         run: |
           docker run -v $(pwd):/work -w /work ${{env.DOCKER_TAG_NAME}} \
-            conda run -n ${{env.DOCKER_TAG_NAME}} -tutorial snakemake --cores 1
+            conda run -n ${{env.DOCKER_TAG_NAME}} snakemake --cores 1
 
