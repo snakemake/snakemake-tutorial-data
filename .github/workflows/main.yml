@@ -93,6 +93,6 @@ jobs:
         run: docker load -i /tmp/${{env.DOCKER_TAG_NAME}}.tar
 
       - name: Run Tests
-        run: docker run -v $(pwd):/work -w /work snakemake/snakemake-tutorial:stable \
-            conda run -n snakemake-tutorial snakemake --cores 1
+        run: docker run -v $(pwd):/work -w /work ${{env.DOCKER_TAG_NAME}} \
+            conda run -n ${{env.DOCKER_TAG_NAME}} -tutorial snakemake --cores 1
 
