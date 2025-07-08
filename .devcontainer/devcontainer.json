@@ -11,7 +11,6 @@
 		"echo \"*\" > .gitignore",
 		"conda init",
 		"source ~/.bashrc",
-		"clear",
-		"conda activate snakemake-tutorial"
+		"echo 'conda activate snakemake-tutorial' >> ~/.bashrc"
 	]
 }
