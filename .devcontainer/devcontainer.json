@@ -5,5 +5,5 @@
 		"context": "..",
 		"dockerfile": "../Dockerfile"
 	},
-	"postCreateCommand": "bash setup.bash"
+	"postCreateCommand": "bash .devcontainer/setup.bash"
 }
