@@ -1,0 +1,9 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+	"name": "Snakemake-Tutorial",
+	"build": {
+		"context": "..",
+		"dockerfile": "../Dockerfile"
+	},
+	"postCreateCommand": "bash .devcontainer/setup.bash"
+}
