@@ -19,8 +19,8 @@ printf 'eval "$(pixi shell-hook --manifest-path %q)"\n' "$PWD/pixi.toml" >> ~/.b
 
 # Replace the default Codespaces welcome message shown in the first terminal
 NOTICE=/usr/local/etc/vscode-dev-containers/first-run-notice.txt
-if [ -f "$NOTICE" ]; then
-  sudo tee "$NOTICE" > /dev/null <<'MSG'
+sudo mkdir -p "$(dirname "$NOTICE")"
+sudo tee "$NOTICE" > /dev/null <<'MSG'
 👋 Welcome to the Snakemake tutorial!
 
 Your Codespace has been initialized with all required software.
@@ -28,6 +28,5 @@ Now you can start with the basic tutorial:
 https://snakemake.readthedocs.io/en/stable/tutorial/basics.html
 
 MSG
-fi
 
 echo "Setup complete!"
