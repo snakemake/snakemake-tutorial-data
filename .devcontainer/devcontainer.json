@@ -1,6 +1,6 @@
 {
   "name": "Snakemake Tutorial",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "onCreateCommand": "bash .devcontainer/setup.sh",
   "customizations": {
     "vscode": {

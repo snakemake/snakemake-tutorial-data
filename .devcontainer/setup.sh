@@ -15,6 +15,6 @@ echo 'export PATH="$HOME/.pixi/bin:$PATH"' >> ~/.bashrc
 # Create and activate the tutorial environment, conda is needed for --sdm conda
 [ -f pixi.toml ] || pixi init --import environment.yaml
 pixi add conda
-echo 'eval "$(pixi shell-hook)"' >> ~/.bashrc
+echo "eval \"\$(pixi shell-hook --manifest-path $PWD/pixi.toml)\"" >> ~/.bashrc
 
 echo "Setup complete!"
