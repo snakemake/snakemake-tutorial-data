@@ -1,0 +1,13 @@
+{
+  "name": "Snakemake Tutorial",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "onCreateCommand": "bash .devcontainer/setup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "snakemake.snakemake-lang"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
