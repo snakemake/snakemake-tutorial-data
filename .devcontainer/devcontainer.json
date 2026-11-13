@@ -5,7 +5,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "snakemake.snakemake-lang"
+        "snakemake.snakemake-lang",
+        "ms-toolsai.jupyter"
       ]
     }
   },
